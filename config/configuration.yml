@@ -80,16 +80,15 @@
 
 # default configuration options for all environments
 default:
-  # Outgoing emails configuration (see examples above)
   email_delivery:
     delivery_method: :smtp
     smtp_settings:
-      address: smtp.example.net
-      port: 25
-      domain: example.net
-      authentication: :login
-      user_name: "redmine@example.net"
-      password: "redmine"
+      address: "smtp.sendgrid.net"
+      port: 587
+      authentication: :plain
+      domain: "heroku.com"
+      user_name: "app16421623@heroku.com"
+      password: "3sdx5ume"
 
   # Absolute path to the directory where attachments are stored.
   # The default is the 'files' directory in your Redmine instance.
