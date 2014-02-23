@@ -52,7 +52,7 @@ module RedmineApp
     # Do not include all helpers
     config.action_controller.include_all_helpers = false
 
-    config.assets.initialize_on_precompile = false
+    config.assets.initialize_on_precompile = false 
 
     config.session_store :cookie_store, :key => '_redmine_session'
 
