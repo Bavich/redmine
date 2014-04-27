@@ -436,6 +436,14 @@ RAW
     end
   end
 
+  def test_redmine_links_by_name_should_work_with_html_escaped_characters
+    v = Version.generate!(:name => "Test & Show.txt", :project_id => 1)
+    link = link_to("Test & Show.txt", "/versions/#{v.id}", :class => "version")
+
+    @project = v.project
+    assert_equal "<p>#{link}</p>", textilizable('version:"Test & Show.txt"')
+  end
+
   def test_link_to_issue_subject
     issue = Issue.generate!(:subject => "01234567890123456789")
     str = link_to_issue(issue, :truncate => 10)
@@ -705,7 +713,7 @@ RAW
           link_to("Unknown page",
                   "/projects/onlinestore/wiki/Unknown_page",
                   :class => "wiki-page new"),
-      # striked through link
+      # struck through link
       '-[[Another page|Page]]-' =>
           "<del>".html_safe +
             link_to("Page",
